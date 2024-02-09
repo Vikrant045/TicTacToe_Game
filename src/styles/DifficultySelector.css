@@ -4,25 +4,27 @@
   }
   
   label {
-    font-size: 1.2em;
+    font-size: 1.4em;
     margin-right: 10px;
   }
   
   select {
     padding: 8px 12px;
-    font-size: 1em;
+    font-size: 1.3em;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 2px solid #e9850a;
     background-color: #f0f0f0;
     color: #333;
     cursor: pointer;
   }
   
   select:hover {
-    border-color: #666;
+    
+    box-shadow: 2px 2px 5px #e9850a;
   }
   
   select:focus {
     outline: none;
-    border-color: #1e88e5;
+    border-color: #e9850a;
+   
   }

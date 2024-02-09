@@ -16,9 +16,7 @@ const App = () => {
   const [isDraw, setIsDraw] = useState(false);
   const [difficulty, setDifficulty] = useState('easy');
 
-  const checkWinner = (board) => {    
-    // Winning Pattern
-    // Implementation remains the same
+  const checkWinner = (board) => {     // Winning Pattern
     const winConditions = [
       [0, 1, 2],
       [3, 4, 5],
@@ -44,9 +42,8 @@ const App = () => {
     return null;
   };
 
-  const handleCellClick = (index) => {                    
-    // Cell click handler
-    // Implementation remains the same
+  const handleCellClick = (index) => {                  // Cell click handler
+
     if (board[index] === EMPTY && !winner && !isDraw && currentPlayer === PLAYER_X) {
       const newBoard = [...board];
       newBoard[index] = currentPlayer;
@@ -62,9 +59,8 @@ const App = () => {
     }
   };
   
-  useEffect(() => {
-    // Effect for computer's move
-    // Implementation remains the same
+  useEffect(() => {                          // Effect for computer's move
+  
     if (currentPlayer === PLAYER_O && !winner && !isDraw) {
       setTimeout(() => {
         makeComputerMove([...board]);
@@ -72,9 +68,8 @@ const App = () => {
     }
   }, [currentPlayer, winner, isDraw, board]);
 
-  const makeComputerMove = (currentBoard) => {       
-    // Computer moves
-    // Implementation remains the same
+  const makeComputerMove = (currentBoard) => {        // Computer moves
+   
     const availableMoves = currentBoard.reduce((acc, cell, index) => {
       if (cell === EMPTY) {
         return acc.concat(index);
@@ -112,9 +107,9 @@ const App = () => {
     }
   };
 
-  const getBestMove = (board, player) => {
-    // Minimax algorithm
-    // Implementation remains the same
+  const getBestMove = (board, player) => {      // Minimax algorithm
+
+ 
     const maximizer = PLAYER_O;
     const minimizer = PLAYER_X;
 
@@ -178,9 +173,8 @@ const App = () => {
     return minimax(board, 0, true, -Infinity, Infinity);
   };
 
-  const resetGame = () => {
-    // Reset game
-    // Implementation remains the same
+  const resetGame = () => {   // Reset game
+   
     setBoard(Array(9).fill(EMPTY));
     setCurrentPlayer(PLAYER_X);
     setWinner(null);
