@@ -1,0 +1,28 @@
+.cell {
+    width: 120px;
+    height: 120px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+    background-color: #b77c38;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cell:hover {
+    background-color: #ca9a5c;
+    box-shadow: 2px 2px 5px rgb(77, 64, 55);
+  }
+  
+  .X {
+    color: #101010;
+    font-weight: 700;
+  }
+  
+  .O {
+    color: #f10a06;
+    font-weight: 700;
+  }

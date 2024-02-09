@@ -1,0 +1,28 @@
+
+.difficulty-container {
+    margin-top: 20px;
+  }
+  
+  label {
+    font-size: 1.2em;
+    margin-right: 10px;
+  }
+  
+  select {
+    padding: 8px 12px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  select:hover {
+    border-color: #666;
+  }
+  
+  select:focus {
+    outline: none;
+    border-color: #1e88e5;
+  }
