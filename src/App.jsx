@@ -35,15 +35,15 @@ const App = () => {
 
     }
 
-    if (board.every(cell => cell !== EMPTY)) {
+    if (board.every(cell => cell !== EMPTY)) {  // If every cell is filled, it is draw
       return 'draw';
     }
 
     return null;     // when winner and draw condition is not matched, returning null
   };
 
-
-  const handleCellClick = (index) => {          // trigged when user(player X) clicking on any cell
+// function, trigged when user(player X) clicking on any cell
+  const handleCellClick = (index) => {          
     if (board[index] === EMPTY && !winner && !isDraw && currentPlayer === PLAYER_X) {
       const newBoard = [...board];
       newBoard[index] = currentPlayer;
@@ -73,14 +73,14 @@ const App = () => {
   }, [currentPlayer, winner, isDraw, board]);
 
 
-// Computer moves
+//  function for Computer moves
   const makeComputerMove = (currentBoard) => {        
 
     const availableMoves = currentBoard.reduce((acc, cell, index) => {  
-      if (cell === EMPTY) {                // returning array of empty cells
-        return acc.concat(index);
+      if (cell === EMPTY) {                
+        return acc.concat(index);      
       }
-      return acc;
+      return acc;           // returning array of empty cells
     }, []);
 
     let nextMove;  // nextMove stores random index(of availMOVES ARRAY) according to the selected difficulty level by user
@@ -113,7 +113,7 @@ const App = () => {
     }
   };
 
-  //to  get best Move for computer in hard mode
+  //function, to  get best Move for computer in hard mode
   const getBestMove = (board, player) => {      // Minimax algorithm is used
     const maximizer = PLAYER_O;
     const minimizer = PLAYER_X;
@@ -124,6 +124,7 @@ const App = () => {
     const minimax = (currentBoard, depth, isMaximizingPlayer, alpha, beta) => {
      
       const winner = checkWinner(currentBoard);
+      //base cases
       if (winner === PLAYER_O) {
         return 10 - depth;
       } else if (winner === PLAYER_X) {
@@ -142,7 +143,7 @@ const App = () => {
         for (let i = 0; i < currentBoard.length; i++) {
           if (currentBoard[i] === EMPTY) {
             const newBoard = [...currentBoard];
-            newBoard[i] = maximizer;
+            newBoard[i] = maximizer;   // maximizer player O
 
            const score = minimax(newBoard, depth + 1, false, alpha, beta); // Recursive call minimax with the new board
             if (score > bestScore) {
@@ -150,7 +151,7 @@ const App = () => {
               bestMove = i;
             }
             alpha = Math.max(alpha, bestScore);  // updating Alpha
-            if (beta <= alpha) {
+            if (beta <= alpha) { // if  beta  becomes <= alpha , it means that this  path is not good enough 
               break;
             }
           }
@@ -184,7 +185,7 @@ const App = () => {
     return minimax(board, 0, true, -Infinity, Infinity);
   };
 
-  // Reset game
+  //function to Reset game,trigged when user clicks play again button
   const resetGame = () => {   
     setBoard(Array(9).fill(EMPTY));
     setCurrentPlayer(PLAYER_X);
